@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1758512115702,
+      "tag": "0000_oval_ken_ellis",
+      "breakpoints": true
+    }
+  ]
+}
