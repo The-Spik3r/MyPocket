@@ -2,8 +2,14 @@
   "extends": "@snowball-tools/typescript-config/base.json",
   "compilerOptions": {
     "lib": ["ES2015"],
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "noEmit": false,
+    "allowImportingTsExtensions": false,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "declaration": false,
+    "declarationMap": false
   },
-  "exclude": ["node_modules"],
-  "include": ["."]
+  "exclude": ["node_modules", "eslint.config.ts", "dist"],
+  "include": ["src/**/*"]
 }
