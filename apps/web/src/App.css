@@ -5,6 +5,26 @@
   text-align: center;
 }
 
+/* Estilos para las páginas */
+.page {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.page h1 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.page p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+/* Estilos originales del template */
 .logo {
   height: 6em;
   padding: 1.5em;
