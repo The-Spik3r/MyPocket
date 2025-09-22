@@ -1,11 +1,16 @@
 import {
   getBaseConfig,
   getImportAliasConfig,
-  getTypeScriptConfig
-} from '@snowball-tools/eslint-config';
+  getTypeScriptConfig,
+} from "@snowball-tools/eslint-config";
 
 export default [
-  ...getBaseConfig('api'),
+  ...getBaseConfig("api"),
   ...getImportAliasConfig(),
-  ...getTypeScriptConfig()
+  ...getTypeScriptConfig(),
+  {
+    rules: {
+      "@stylistic/linebreak-style": ["error", "crlf"], // Use CRLF for Windows
+    },
+  },
 ];
