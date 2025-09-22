@@ -1,0 +1,75 @@
+# Dependencies
+node_modules
+.pnp.*
+.yarn/*
+.pnp.cjs
+_node_modules
+vendor
+
+# Build outputs
+dist
+build
+lib
+artifacts
+go-artifacts
+rust-artifacts
+*.tsbuildinfo
+file_descriptor_set.bin
+
+# Environment and config
+.env
+.npmrc
+!examples/**/.npmrc
+
+# IDE and editor
+.idea
+.vscode
+.DS_Store
+
+# Cache and temporary
+.store
+.turbo
+.vercel
+coverage
+.tmp
+.jest-cache
+.verdaccio-cache
+.eslintcache
+_docpress
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Test artifacts
+tests_output
+*.t.err
+*.t.rej
+*.t.orig
+.cram_env
+examples-tests-tmp
+test.lib
+
+# Project specific
+data
+todos.md
+LEARNINGS.md
+RELEASE.md
+graph*.html
+*.node
+cli/libturbo.a
+cli/libturbo.h
+rustc-ice-*.txt
+sweep.timestamp
+package-lock.json
+yarn.lock
+
+# Custom fixtures
+__fixtures__/custom-modules-dir/**/fake_modules/
+__fixtures__/custom-modules-dir/cache/
+__fixtures__/custom-modules-dir/patches/
+
+# Include specific test fixtures
+!**/__fixtures__/**/*.env
+!crates/turborepo-vt100/tests/data

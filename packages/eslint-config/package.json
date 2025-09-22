@@ -1,0 +1,29 @@
+{
+  "name": "@snowball-tools/eslint-config",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "eslint . --fix",
+    "lint:inspect": "eslint-config-inspector",
+    "check": "npm run check:types",
+    "check:types": "tsc"
+  },
+  "devDependencies": {
+    "@snowball-tools/typescript-config": "workspace:*",
+    "@dword-design/eslint-plugin-import-alias": "^5.1.1",
+    "@eslint/js": "^9.18.0",
+    "@stylistic/eslint-plugin": "^2.12.1",
+    "eslint-config-flat-gitignore": "^1.0.0",
+    "eslint-plugin-file-progress": "^3.0.1",
+    "eslint-plugin-react": "^7.37.3",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.17",
+    "find-up-simple": "^1.0.0",
+    "globals": "^15.14.0",
+    "typescript-eslint": "^8.19.1"
+  }
+}

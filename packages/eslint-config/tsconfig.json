@@ -1,0 +1,7 @@
+{
+  "extends": "@repo/typescript-config/library.json",
+  "compilerOptions": {
+    "lib": ["ESNext"]
+  },
+  "include": ["lint/**/*.ts", "*.ts"]
+}
