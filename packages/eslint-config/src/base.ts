@@ -1,9 +1,8 @@
-import globals from 'globals';
-import js from '@eslint/js';
+import globals = require('globals');
+import * as js from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import fileProgress from 'eslint-plugin-file-progress';
 import gitignore from 'eslint-config-flat-gitignore';
-// @ts-expect-error - Missing types from package
 import eslintPluginImportAlias from '@dword-design/eslint-plugin-import-alias';
 import { findUpSync } from 'find-up-simple';
 import type { Linter } from 'eslint';
@@ -104,14 +103,17 @@ export function getBaseConfig(
         braceStyle: '1tbs',
         arrowParens: false,
         blockSpacing: true
-      }) as Linter.Config),
+      }) as unknown as Linter.Config),
       name: '(@stylistic) Extended config from plugin'
     },
     {
       rules: {
         'no-empty': ['error', { allowEmptyCatch: true }],
         '@stylistic/quotes': ['error', 'single', { avoidEscape: true }],
-        '@stylistic/linebreak-style': ['error', 'unix'],
+        '@stylistic/linebreak-style': [
+          'error',
+          process.platform === 'win32' ? 'windows' : 'unix'
+        ],
         '@stylistic/jsx-one-expression-per-line': 'off',
         '@stylistic/jsx-indent-props': 'off',
         '@stylistic/jsx-closing-bracket-location': 'off'
