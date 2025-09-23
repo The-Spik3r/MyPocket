@@ -1,9 +1,10 @@
 import { drizzle } from "drizzle-orm/mysql2";
 import mysql from "mysql2/promise";
+import { env } from "../env";
 
 // URL de conexión a MySQL
-const connectionUrl =
-  process.env.DATABASE_URL || "mysql://root:@localhost:3306/pokeee";
+const connectionUrl = env.DATABASE_URL;
+console.log("🚀 ~ connectionUrl:", connectionUrl);
 
 // Crear la conexión usando la URL (esto retorna una Promise)
 let connection: mysql.Connection;

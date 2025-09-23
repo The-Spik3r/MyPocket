@@ -1,14 +1,21 @@
-import express, { Request, Response } from "express";
+import express from "express";
+import cors from "cors";
 import { testConnection } from "./db";
+import { apiRoutes } from "./routes";
+import { errorHandler } from "./middleware/errorHandler";
+import { env } from "./env";
 
 const app = express();
-const port = process.env.PORT || 3000;
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, World!");
-});
+// Middleware
+app.use(cors());
+app.use(express.json());
 
-app.get("/health/db", async (req: Request, res: Response) => {
+// Rutas
+app.use("/api", apiRoutes);
+
+// Health check
+app.get("/health/db", async (req, res) => {
   const isConnected = await testConnection();
   res.json({
     status: isConnected ? "connected" : "disconnected",
@@ -16,8 +23,10 @@ app.get("/health/db", async (req: Request, res: Response) => {
   });
 });
 
-// Probar la conexión al iniciar el servidor
-app.listen(port, async () => {
-  console.log(`Server running at http://localhost:${port}`);
+// Error handling
+app.use(errorHandler);
+
+app.listen(env.PORT, async () => {
+  console.log(`Server running at http://localhost:${env.PORT}`);
   await testConnection();
 });
