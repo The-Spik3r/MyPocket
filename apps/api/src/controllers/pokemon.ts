@@ -17,6 +17,8 @@ export class PokemonController {
 
   getById(req: Request, res: Response) {
     // Logic to get a Pokémon by ID
+    const id = parseInt(req.params.id, 10);
+    return this.pokemonService.getPokemonById(id).then((pokemon) => res.json(pokemon));
   }
 
   create(req: Request, res: Response) {

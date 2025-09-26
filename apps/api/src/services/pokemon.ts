@@ -17,4 +17,8 @@ export class PokemonService {
     return await this.pokemonRepository.getAllPokemons();
     // Logic to get a Pokémon by ID
   }
+
+  async getPokemonById(id: number) {
+    return await this.pokemonRepository.fetchFromAPI(`${id}`);
+  }
 }

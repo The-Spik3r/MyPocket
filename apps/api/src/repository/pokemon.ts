@@ -1,4 +1,7 @@
 import axios, { AxiosInstance } from "axios";
+import { db } from "../db";
+import { pokemonSchema } from "../db/models";
+import { and } from "drizzle-orm";
 
 export class PokemonRepository {
   private apiClient: AxiosInstance;
@@ -7,7 +10,7 @@ export class PokemonRepository {
   constructor() {
     // Configuración de la instancia de Axios para futuras llamadas a APIs
     this.apiClient = axios.create({
-      baseURL: "https://example.com/api/v2", // API de ejemplo, puedes cambiarla
+      baseURL: "https://pokeapi.co/api/v2/pokemon/", // API de ejemplo, puedes cambiarla
       timeout: 10000, // 10 segundos de timeout
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +29,7 @@ export class PokemonRepository {
   }
 
   async getAllPokemons() {
-    return await this.pokemons;
+    return await db.select().from(pokemonSchema).where(and(pokemonSchema.pkName, "hola"));
   }
 
   // Método genérico para hacer peticiones GET
